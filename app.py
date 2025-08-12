@@ -27,13 +27,13 @@ st.subheader("Try it now")
 colA, colB = st.columns([1,1])
 
 with colA:
-    use_sample = st.button("▶️ Use sample RFP")
+    load_sample = st.button("▶️ Use sample RFP")
 
 with colB:
     show_sample_download()
     
 uploaded_file = st.file_uploader("Upload RFP", type=["pdf", "txt"])
-use_sample = st.button("Use Sample Oil & Gas RFP")
+load_sample = st.button("Use Sample Oil & Gas RFP")
 if uploaded_file:
     file_bytes = uploaded_file.read()
 elif use_sample:
