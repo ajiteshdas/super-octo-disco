@@ -15,13 +15,13 @@ def load_sample():
     return "sample_rfp_oilgas.pdf"
 
 def show_sample_download():
-    with open("sample_data.csv", "rb") as f:
+    with open("sample_rfp_oilgas.pdf", "rb") as f:
         st.download_button(
-            "📥 Download sample CSV",
+            "📥 Download sample RFP",
             data=f,
-            file_name="sample_data.csv",
-            mime="text/csv",
-            help="Grab a copy of the sample and tweak it if you like."
+            file_name="sample_rfp_oilgas.pdf",
+            mime="pdf",
+            help="Grab a copy of the sample RFP."
         )
 
 st.subheader("Try it now")
