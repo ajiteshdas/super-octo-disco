@@ -5,8 +5,8 @@ import pdfplumber
 import re
 from io import BytesIO
 
-st.set_page_config(page_title="Oil & Gas RFP/Contract Analyzer", page_icon="📄", layout="wide")
-st.title("📄 Oil & Gas RFP/Contract Analyzer")
+st.set_page_config(page_title="Oil & Gas RFP/Contract Analyzer - Ajitesh Das", page_icon="📄", layout="wide")
+st.title("📄 Oil & Gas RFP/Contract Analyzer by Ajitesh Das")
 st.write("Upload an Oil & Gas RFP (PDF/TXT) to extract key dates, compliance requirements, and deliverables.")
 
 # Sample file loader
@@ -15,28 +15,22 @@ def load_sample():
     return "sample_rfp_oilgas.pdf"
 
 def show_sample_download():
-    with open("sample_rfp_oilgas.pdf", "rb") as f:
+    with open("sample_data.csv", "rb") as f:
         st.download_button(
-            "📥 Download sample RFP",
+            "📥 Download sample CSV",
             data=f,
-            file_name="sample_rfp_oilgas.pdf",
-            mime="pdf",
-            help="Grab a copy of the sample RFP."
+            file_name="sample_data.csv",
+            mime="text/csv",
+            help="Grab a copy of the sample and tweak it if you like."
         )
-st.subheader("Try it now")
-colA, colB = st.columns([1,1])
 
-with colA:
-    load_sample = st.button("▶️ Use sample RFP")
+show_sample_download()
 
-with colB:
-    show_sample_download()
-    
 uploaded_file = st.file_uploader("Upload RFP", type=["pdf", "txt"])
-load_sample = st.button("Use Sample Oil & Gas RFP")
+use_sample = st.button("Use Sample Oil & Gas RFP")
 if uploaded_file:
     file_bytes = uploaded_file.read()
-elif load_sample:
+elif use_sample:
     with open(load_sample(), "rb") as f:
         file_bytes = f.read()
 else:
