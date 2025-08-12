@@ -36,7 +36,7 @@ uploaded_file = st.file_uploader("Upload RFP", type=["pdf", "txt"])
 load_sample = st.button("Use Sample Oil & Gas RFP")
 if uploaded_file:
     file_bytes = uploaded_file.read()
-elif use_sample:
+elif load_sample:
     with open(load_sample(), "rb") as f:
         file_bytes = f.read()
 else:
