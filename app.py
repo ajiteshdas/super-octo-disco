@@ -24,7 +24,7 @@ def show_sample_download():
             help="Grab a copy of the sample and tweak it if you like."
         )
 
-show_sample_download()
+st.button(show_sample_download())
 
 uploaded_file = st.file_uploader("Upload RFP", type=["pdf", "txt"])
 use_sample = st.button("Use Sample Oil & Gas RFP")
