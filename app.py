@@ -14,6 +14,24 @@ st.write("Upload an Oil & Gas RFP (PDF/TXT) to extract key dates, compliance req
 def load_sample():
     return "sample_rfp_oilgas.pdf"
 
+def show_sample_download():
+    with open("sample_rfp_oilgas.pdf", "rb") as f:
+        st.download_button(
+            "📥 Download sample RFP",
+            data=f,
+            file_name="sample_rfp_oilgas.pdf",
+            mime="pdf",
+            help="Grab a copy of the sample RFP."
+        )
+st.subheader("Try it now")
+colA, colB = st.columns([1,1])
+
+with colA:
+    use_sample = st.button("▶️ Use sample RFP")
+
+with colB:
+    show_sample_download()
+    
 uploaded_file = st.file_uploader("Upload RFP", type=["pdf", "txt"])
 use_sample = st.button("Use Sample Oil & Gas RFP")
 if uploaded_file:
